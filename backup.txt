@@ -1,0 +1,34 @@
+import datetime
+import pandas as pd
+import os
+#print(os.getcwd())
+d = {}
+
+def menu():
+    print("I'm the main menue")
+    print("What would you like to do?")
+    print('''
+            Welcome to SOLVIZ, visualize your solar production''')
+
+def import_data():
+    print(os.getcwd())
+    os.chdir('INPUT')
+    print("Now in: ",os.getcwd())
+    fl = os.listdir()
+    print(fl)
+    df = pd.DataFrame()
+    for file in fl:
+        df = df.append(pd.read_excel(file), ignore_index=True)
+        print(df.shape)
+
+    
+
+def main():
+    menu()
+    import_data()
+    #print("finally:  ",df.head())
+
+
+if __name__ == "__main__":
+    main()
+
